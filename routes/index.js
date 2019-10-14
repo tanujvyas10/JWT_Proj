@@ -49,7 +49,7 @@ router.get("/link4",AuthHelper.VerifyToken,(req,res)=>{
 })
 router.get("/premium",AuthHelper.VerifyToken,(req,res)=>{
   User.findById(req.user._id,(err,dataa)=>{
-  )
+  
     if(dataa.pack=='premium'){
       res.render("premium")
     }
