@@ -13,10 +13,9 @@ const dbConfig=require("../config/secret")
 /* GET home page. */
 router.get('/',function(req, res, next) {
  
-  console.log("cookies are-111111->",req.cookies)
+  
   if(req.cookies.auth || req.cookies.auth!='undefined'){
-    console.log("cookies are-->",req.cookies)
-    console.log("req-user is",req.user)
+   
   res.redirect("/welcome")  
   }
   res.render('index');
