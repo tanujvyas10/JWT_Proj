@@ -24,9 +24,9 @@ router.get('/',function(req, res, next) {
 
 
 router.get("/signup_user",function(req,res){
-  //res.render("signup")
+ 
   res.render('signup');
-//res.send("dsds")
+
 })
 
 
