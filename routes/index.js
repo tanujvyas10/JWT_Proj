@@ -10,12 +10,11 @@ const bcrypt = require('bcryptjs');
 const jwt=require("jsonwebtoken")
 const dbConfig=require("../config/secret")
 
-const middleware=require("../middleware/check")
 /* GET home page. */
 router.get('/',function(req, res, next) {
-  //alert("cookies are-->",req.cookies)
+ 
   console.log("cookies are-111111->",req.cookies)
-  if(req.cookies.auth ){
+  if(req.cookies.auth || req.cookies.auth!='undefined'){
     console.log("cookies are-->",req.cookies)
     console.log("req-user is",req.user)
   res.redirect("/welcome")  
@@ -30,7 +29,7 @@ router.get("/signup_user",function(req,res){
 //res.send("dsds")
 })
 
-//console.log("authHelper",AuthHelper.VerifyToken)
+
 router.get('/welcome',AuthHelper.VerifyToken,function(req, res, next) {
   console.log("req-user is",req.user)
   res.render('welcome',{data:req.user});
@@ -179,7 +178,7 @@ res.redirect("/welcome")
 
 
 router.get("/logout",(req,res)=>{
- console.log("req cokie in logot",req.cookies)
+ 
  res.cookie("auth",undefined);
 res.render('index')
 })

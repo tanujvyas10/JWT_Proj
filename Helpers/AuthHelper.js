@@ -1,7 +1,7 @@
 
 
 const jwt = require('jsonwebtoken');
-const HttpStatus = require('http-status-codes');
+
 
 const dbConfig = require('../config/secret');
 
@@ -13,7 +13,12 @@ module.exports = {
 
     const token = req.cookies.auth 
 
+  if(token=='undefined'){
+  res.render("index")
   
+return
+
+  }
 
     if (!token) {
       console.log("No token provided")
