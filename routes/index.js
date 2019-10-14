@@ -30,7 +30,7 @@ router.get("/signup_user",function(req,res){
 
 
 router.get('/welcome',AuthHelper.VerifyToken,function(req, res, next) {
-  console.log("req-user is",req.user)
+
   res.render('welcome',{data:req.user});
 });
 
@@ -49,7 +49,7 @@ router.get("/link4",AuthHelper.VerifyToken,(req,res)=>{
 })
 router.get("/premium",AuthHelper.VerifyToken,(req,res)=>{
   User.findById(req.user._id,(err,dataa)=>{
-    console.log("data foumd",dataa)
+  )
     if(dataa.pack=='premium'){
       res.render("premium")
     }
@@ -101,7 +101,7 @@ router.post("/login", async function LoginUser(req, res){
 })
 
 router.post("/signup",async function CreateUser(req,res){
-  console.log("for ionic tst",req.body)
+  
 
   if (!req.body.email || !req.body.password || !req.body.username) {
    
